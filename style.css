@@ -1,0 +1,596 @@
+/*
+Theme Name: کارن سافت
+Theme URI: https://github.com/rahmaniho/Wordpress
+Author: rahmaniho / Karen Soft
+Author URI: https://github.com/rahmaniho
+Description: قالب وردپرسی اینترنتی و نرم‌افزاری کارن سافت — طراحی راست‌به‌چپ (فارسی)، Responses، بخش خدمات، محصولات، نمونه‌کارها و فرم تماس. قابل بارگیری به صورت ZIP از گیت‌هاب و نصب از طریق نمایش > قالب‌ها در وردپرس.
+Version: 1.0.0
+Requires at least: 5.8
+Tested up to: 6.5
+Requires PHP: 7.4
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: karen-soft
+Domain Path: /languages
+Tags: custom-colors, custom-logo, featured-images, rtl-language-support, responsive-layout, blog, portfolio, business
+*/
+
+/* ════════════════════════════════════════════════════════════════════
+   ۱. بازنشانی و متغیرها
+   ═══════════════════════════════════════════════════════════════════ */
+:root {
+  --ks-brand: #3b6df6;
+  --ks-brand-dark: #2551e0;
+  --ks-accent: #c9a96e;
+  --ks-accent-dark: #b49250;
+  --ks-ink: #0a0e18;
+  --ks-ink-soft: #1c2433;
+  --ks-muted: #56637a;
+  --ks-surface: #ffffff;
+  --ks-surface-soft: #f7f8fb;
+  --ks-border: #e2e5ea;
+  --ks-shadow: 0 18px 48px -14px rgba(10, 24, 48, 0.10);
+  --ks-radius: 12px;
+  --ks-transition: 0.28s ease;
+  --fs-base: 1rem;
+  --line-base: 1.8;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "IRANSans", "Vazirmatn", Tahoma, "Segoe UI", sans-serif;
+  font-size: var(--fs-base);
+  line-height: var(--line-base);
+  color: var(--ks-ink);
+  background: var(--ks-surface);
+  direction: rtl;
+  text-align: right;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--ks-brand);
+  text-decoration: none;
+  transition: color var(--ks-transition);
+}
+
+a:hover {
+  color: var(--ks-accent-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.9rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.1rem;
+}
+
+ul, ol {
+  margin: 0 0 1.2rem 0;
+  padding-inline-end: 1.2rem;
+}
+
+li { margin-bottom: 0.4rem; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+input, button, select, textarea {
+  font: inherit;
+}
+
+.section {
+  padding: 4.5rem 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ۲. هدر و ناوبری
+   ═══════════════════════════════════════════════════════════════════ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--ks-border);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--ks-ink);
+  margin: 0;
+}
+
+.site-title:hover { color: var(--ks-brand); }
+
+.site-branding img {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+}
+
+.primary-navigation ul {
+  display: flex;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.primary-navigation a {
+  display: block;
+  padding: 1.1rem 1.15rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ks-ink-soft);
+  border-bottom: 2px solid transparent;
+}
+
+.primary-navigation a:hover,
+.primary-navigation .current-menu-item > a,
+.primary-navigation .current_page_parent > a {
+  color: var(--ks-brand);
+  border-bottom-color: var(--ks-brand);
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--ks-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  color: var(--ks-ink);
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ۳. iš 섹شن/-/بخش‌ها
+   ═══════════════════════════════════════════════════════════════════ */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ks-brand);
+  margin-bottom: 0.75rem;
+}
+
+.section-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 1.4rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 2.2vw + 1rem, 2.6rem);
+  margin-bottom: 1rem;
+  color: var(--ks-ink);
+}
+
+.section-lead {
+  font-size: 1.1rem;
+  color: var(--ks-muted);
+  max-width: 64ch;
+  margin: 0 auto 2.2rem auto;
+  text-align: center;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ۴. دکمه‌ها
+   ═══════════════════════════════════════════════════════════════════ */
+.button,
+input[type="submit"],
+button[type="submit"],
+.wp-block-button__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.72rem 1.4rem;
+  border-radius: var(--ks-radius);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform var(--ks-transition), background var(--ks-transition), box-shadow var(--ks-transition);
+  border: none;
+}
+
+.button,
+.wp-block-button__link {
+  background: var(--ks-brand);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.button:hover,
+.wp-block-button__link:hover,
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+  background: var(--ks-brand-dark);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: var(--ks-shadow);
+}
+
+.button-outline {
+  background: transparent;
+  border: 2px solid var(--ks-border);
+  color: var(--ks-ink);
+}
+
+.button-outline:hover {
+  border-color: var(--ks-brand);
+  color: var(--ks-brand);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ۵. سله cylindrical / héro (صفحه اصلی)
+   ═══════════════════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  padding: 5.5rem 1rem 6.5rem;
+  background: linear-gradient(180deg, #f4f6fa 0%, #eef1f6 100%);
+  overflow: hidden;
+  text-align: right;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ks-brand);
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 4vw + 1rem, 4.2rem);
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+  color: var(--ks-ink);
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: var(--ks-muted);
+  max-width: 62ch;
+  margin: 0 auto 2rem auto;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.9rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ۶. آمار
+   ═══════════════════════════════════════════════════════════════════ */
+.stats {
+  background: var(--ks-surface-soft);
+  border-top: 1px solid var(--ks-border);
+  border-bottom: 1px solid var(--ks-border);
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-item {
+  padding: 1.4rem 1rem;
+}
+
+.stat-value {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--ks-brand);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--ks-muted);
+  margin-top: 0.3rem;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ۷. گرید خدمت / محصول / نمونه‌کار
+   ═══════════════════════════════════════════════════════════════════ */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.6rem;
+}
+
+.card {
+  background: var(--ks-surface);
+  border: 1px solid var(--ks-border);
+  border-radius: var(--ks-radius);
+  padding: 1.6rem;
+  transition: transform var(--ks-transition), border-color var(--ks-transition), box-shadow var(--ks-transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  border-color: var(--ks-brand);
+  box-shadow: var(--ks-shadow);
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #eef4ff;
+  color: var(--ks-brand);
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.55rem;
+  color: var(--ks-ink);
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--ks-muted);
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.card-meta {
+  margin-top: auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ks-accent-dark);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ۸. فرم تماس
+   ═══════════════════════════════════════════════════════════════════ */
+.contact-form-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.karen-contact-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1rem;
+  background: var(--ks-surface-soft);
+  padding: 2rem;
+  border-radius: var(--ks-radius);
+  border: 1px solid var(--ks-border);
+}
+
+.karen-contact-form label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ks-ink);
+  margin-bottom: 0.45rem;
+}
+
+.karen-contact-form input,
+.karen-contact-form select,
+.karen-contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--ks-border);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.95rem;
+  transition: border-color var(--ks-transition), box-shadow var(--ks-transition);
+}
+
+.karen-contact-form input:focus,
+.karen-contact-form select:focus,
+.karen-contact-form textarea:focus {
+  outline: none;
+  border-color: var(--ks-brand);
+  box-shadow: 0 0 0 3px rgba(59, 109, 246, 0.12);
+}
+
+.karen-contact-form textarea {
+  grid-column: 1 / -1;
+  min-height: 150px;
+  resize: vertical;
+}
+
+.karen-contact-form button {
+  grid-column: 1 / -1;
+  width: fit-content;
+  justify-self: flex-start;
+}
+
+.karen-contact-response {
+  grid-column: 1 / -1;
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  min-height: 1.4em;
+}
+
+.karen-contact-response.success { color: #10b981; }
+.karen-contact-response.error   { color: #ef4444; }
+
+/* ════════════════════════════════════════════════════════════════════
+   ۹. پاورقی
+   ═══════════════════════════════════════════════════════════════════ */
+.site-footer {
+  background: var(--ks-ink);
+  color: #c7d2dc;
+  padding: 3.5rem 1rem 2rem;
+}
+
+.site-footer a { color: #dfe8f0; }
+.site-footer a:hover { color: var(--ks-accent); }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-widget h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.footer-widget ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-widget li { margin-bottom: 0.55rem; }
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.85rem;
+  color: #8f9ea8;
+}
+
+.footer-bottom .flex-row {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ۱۰. ویدجت‌ها و المنت‌های وردپرس
+   ═══════════════════════════════════════════════════════════════════ */
+.widget { margin-bottom: 1.6rem; }
+.widget-title { font-size: 1.05rem; margin-bottom: 0.8rem; color: var(--ks-ink); }
+
+.wp-block-group__inner-container,
+.wp-block-columns { margin-bottom: 1.6rem; }
+
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright { float: left; margin: 0 0 1rem 1rem; }
+.alignleft  { float: right; margin: 0 1rem 1rem 0; }
+
+blockquote {
+  border-inline-start: 4px solid var(--ks-accent);
+  padding: 0.9rem 1.3rem;
+  margin: 1.4rem 0;
+  background: var(--ks-surface-soft);
+  font-style: italic;
+  color: var(--ks-muted);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ۱۱. رسپانسیو
+   ════════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .primary-navigation {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    border-top: 1px solid var(--ks-border);
+    display: none;
+  }
+  .primary-navigation.nav-open { display: block; }
+  .primary-navigation ul { flex-direction: column; }
+  .primary-navigation a { padding: 0.9rem 1.2rem; border-bottom: 1px solid var(--ks-border); }
+
+  .hero-actions { justify-content: center; }
+
+  h1 { font-size: 1.9rem; }
+  h2 { font-size: 1.55rem; }
+  h3 { font-size: 1.25rem; }
+
+  .footer-bottom .flex-row { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 3rem 1rem; }
+  .karen-contact-form { padding: 1.4rem; }
+  .hero { padding: 4rem 1rem 5rem; }
+}

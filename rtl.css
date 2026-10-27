@@ -1,0 +1,20 @@
+/*
+rtl.css — themes فارسی/راست‌به‌چپ.
+styled اصلی (style.css) قبلاً راست‌به‌چپ ریخته است؛ این فایل فقط تضمین می‌کند
+وكيهی هم‌چون وردپرس در languages RTL آن را بارگذاری می‌کند، چیدمان را به هم نمی‌زد.
+*/
+html, body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* دکمه‌های تایید/لغو وردپرس در محیط RTL */
+.button,
+.wp-block-button__link,
+input[type="submit"],
+button[type="submit"] {
+  margin-inline-start: auto;
+}
+
+/* الگ）: بلوک‌ها در RTL ]
+.wp-block-columns { flex-direction: row-reverse; }
